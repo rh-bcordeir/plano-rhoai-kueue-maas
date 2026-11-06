@@ -2,8 +2,6 @@
 
 ## Como usar este documento
 
-Este tutorial troca o Red Hat build of Kueue pelo NVIDIA Run:ai self-hosted 3.0 como agendador e controle de cota das GPUs. O resto do desenho (RHOAI 3.5, llm-d, MaaS, Connectivity Link, FindFace) continua igual.
-
 **Plataforma:** Red Hat OpenShift AI 3.5 · OpenShift 4.22 · Distributed Inference with llm-d · Models-as-a-Service (MaaS) · NVIDIA Run:ai self-hosted 3.0 (control plane e cluster no mesmo OpenShift)
 
 **Workloads de GPU:** Qwen3.8-Flash-Next (FP8), Qwen3.5-35B-A3B-FP8, modelo de transcrição de áudio (a definir) e componentes de GPU do FindFace Multi
@@ -14,7 +12,6 @@ Este tutorial troca o Red Hat build of Kueue pelo NVIDIA Run:ai self-hosted 3.0 
 - **Parte 2 – Implantação passo a passo:** do cluster vazio até os workloads respondendo, na ordem de execução.
 - **Parte 3 – Operação:** atualizações, mudanças de capacidade, upgrade do Run:ai e o procedimento para **remover o Run:ai**, se for necessário.
 
-> **Status de validação (6 nov 2026):** as Etapas 1 a 15 foram reproduzidas em laboratório com OpenShift 4.22.14, RHOAI 3.5.2, RHCL 1.4.4, GPU Operator 26.7.2 e Run:ai 3.0.20 (edição Open Source), em **4 nós com 1 NVIDIA L4 cada**. Para caber no hardware, os dois tipos de GPU foram simulados com um label próprio (2 nós por pool), os LLMs foram trocados por modelos pequenos (1 GPU por pod) e FindFace e transcrição por pods CUDA de teste. A remoção do Run:ai e a reinstalação (Parte 3, seção 4) também foram executadas, com tráfego contínuo pelo MaaS. O que **não** foi testado: TP/TEP com várias GPUs por pod, NVLink, frações de GPU e o FindFace real. As correções que o laboratório exigiu estão incorporadas no texto e marcadas como **(validado em laboratório)**; o resumo está na seção 8 da Parte 1.
 
 ### Diagrama da arquitetura
 
